@@ -1,3 +1,11 @@
-let nombre = "Hola Mundo";
+let nombre = 'Hola Mundo';
+let NombreCompleto;
+let nombreCompleto;
+let nombre_completo;
+console.log(NombreCompleto);
 
-console.log(nombre);
+let apellido;
+let animal;
+apellido = 'Schurmann';
+
+XMLDocument, a, n1, abc, r, r1
