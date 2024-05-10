@@ -6,3 +6,8 @@ let user = {
 for (let prop in user) {
     console.log(prop, user[prop]);
 }
+
+let animales = ['Chanchito feliz', 'Dragón', 'Canguro'];
+for (let indice in animales) {
+    console.log(indice, animales[indice])
+}
