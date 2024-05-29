@@ -17,6 +17,7 @@ const suma=(a,b)=> a+b;
 
 console.log(suma(2,3));
 */
+/*
 const usuario={
     nombre:'Ivan',
     apellido:'Guerra',
@@ -39,7 +40,7 @@ const usuario={
 //Metodos
 console.log(usuario.enviaCorreo());
 */
-
+/*
 //Trabajo co  el DOM
 const titulo= document.createElement('h1');
 titulo.innerText='Soy un titulo creado con JS';
@@ -55,3 +56,43 @@ boton.addEventListener('click',function(){
     alert('Exito');
 });
 
+*/
+// Ejemplo de promesa
+/*
+const ul= document.createElement('ul')
+fetch('https://jsonplaceholder.typicode.com/posts')
+    .then (function (response){
+        console.log("Carga de datos completada");
+        return response.json()
+    }).then(function (data){
+        console.log(data)
+        data.forEach(function (post) {
+            const li = document.createElement('li')
+            li.innerHTML= post.title
+            ul.append(li)
+        });    
+    document.body.append(ul)
+    })
+
+console.log('Cargando HTML');
+console.log('Cargando CSS');
+console.log('Cargando Imagenes');
+*/
+
+const ul= document.createElement('ul')
+
+async function cargarDatos(){
+    const response= await fetch('https://jsonplaceholder.typicode.com/posts');
+    const datos = await response.json();
+    console.log(datos);
+    datos.forEach(function (post) {
+        const li = document.createElement('li')
+        li.innerHTML= post.title
+        ul.append(li)
+    });  
+    document.body.append(ul)  
+}
+cargarDatos();
+console.log('Cargando HTML');
+console.log('Cargando CSS');
+console.log('Cargando Imagenes');
