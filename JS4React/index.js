@@ -55,8 +55,8 @@ boton.addEventListener('click',function(){
     titulo.innerText="Evento click ejecutado";
     alert('Exito');
 });
-
 */
+
 // Ejemplo de promesa
 /*
 const ul= document.createElement('ul')
@@ -96,3 +96,5 @@ cargarDatos();
 console.log('Cargando HTML');
 console.log('Cargando CSS');
 console.log('Cargando Imagenes');
+
+
