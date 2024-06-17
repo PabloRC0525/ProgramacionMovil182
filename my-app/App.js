@@ -13,17 +13,20 @@ const Texto=(props)=>{
   return (<Text>{children}</Text>)
 }
   */
-const Texto=()=>{
-  const [contenido,setContenido]= useState('Hola Mundo!')
+const Texto=({estilo})=>{
+  const [contenido,setContenido]= useState('Pecsi')
   const actualizarContenido=()=>{setContenido('State actualizo este texto')}
-  return (<Text onPress={actualizarContenido}>{contenido}</Text>)
+  return (<Text style={[styles.text, estilo]} onPress={actualizarContenido}>{contenido}</Text>)
 }
 export default function App() {
   return (
     <View style={styles.container}>
-      <Texto contenido={'Hola Mundo!'}></Texto>
-      <Texto contenido={'React Native'}/>
-      <Button title='presioname' color='#000000' ></Button>
+  
+      <Texto estilo={styles.red}/>
+      <Texto estilo={styles.white}/>
+      <Texto estilo={styles.blue}/>
+
+
       <StatusBar style="auto" />
     </View>
   );
@@ -32,8 +35,27 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    flexDirection:'column-reverse',
+    backgroundColor: '#000000',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-evenly',
+  },
+  text:{
+    color:'black',
+    fontSize:25,
+    height:100,
+    width:150,
+  },
+  red:{
+    /* flex:1, */
+    backgroundColor:'red',
+  },
+  white:{
+    /* flex:2, */
+    backgroundColor:'white',
+  },
+  blue:{
+    /* flex:3, */
+    backgroundColor:'blue',
   },
 });
