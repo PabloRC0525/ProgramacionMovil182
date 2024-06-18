@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
 import React, { useState } from 'react';
 /*
 const Texto=(props)=>{
@@ -13,21 +13,25 @@ const Texto=(props)=>{
   return (<Text>{children}</Text>)
 }
   */
-const Texto=({estilo})=>{
+/* const Texto=({estilo})=>{
   const [contenido,setContenido]= useState('Pecsi')
   const actualizarContenido=()=>{setContenido('State actualizo este texto')}
   return (<Text style={[styles.text, estilo]} onPress={actualizarContenido}>{contenido}</Text>)
-}
+} */
+
+  
+
 export default function App() {
+  const [text, setText]= useState('Valor Default')
+  const [submit, setSubmit]= useState('')
   return (
     <View style={styles.container}>
-  
-      <Texto estilo={styles.red}/>
-      <Texto estilo={styles.white}/>
-      <Texto estilo={styles.blue}/>
 
+      <Text>Componente TextInput: {submit}</Text>
+      <TextInput style={styles.input} placeholder='Escribe texto...' onChangeText={(t)=>setText(t)} value={text}/>
+      <Button title='Presioname...'onPress={()=>{setSubmit(text); alert('Texto enviado')}}/>      
 
-      <StatusBar style="auto" />
+      <StatusBar style="auto"/>
     </View>
   );
 }
@@ -35,27 +39,16 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection:'column-reverse',
-    backgroundColor: '#000000',
+    flexDirection:'column',
+    backgroundColor: '#FFFFFF',
     alignItems: 'center',
-    justifyContent: 'space-evenly',
+    justifyContent: 'center',
   },
-  text:{
-    color:'black',
-    fontSize:25,
-    height:100,
-    width:150,
-  },
-  red:{
-    /* flex:1, */
-    backgroundColor:'red',
-  },
-  white:{
-    /* flex:2, */
-    backgroundColor:'white',
-  },
-  blue:{
-    /* flex:3, */
-    backgroundColor:'blue',
+  input: {
+    backgroundColor:'#DFD7FD',
+    width:'80%',
+    height:40,
+    borderBottomWidth: 1,
+    borderBottomColor:'blue',
   },
 });
