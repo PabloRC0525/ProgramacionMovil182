@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
+import { StyleSheet, Text, View, Button, TextInput, ScrollView, Dimensions } from 'react-native';
 import React, { useState } from 'react';
 /*
 const Texto=(props)=>{
@@ -26,12 +26,50 @@ export default function App() {
   const [submit, setSubmit]= useState('')
   return (
     <View style={styles.container}>
+      <ScrollView style={styles.scrollView}>
 
-      <Text>Componente TextInput: {submit}</Text>
+      <Text>Componente: {submit}</Text>
+      <Text>Componente: {submit}</Text>
+      <Text>Componente: {submit}</Text>
+      <Text>Componente: {submit}</Text>
+      <Text>Componente: {submit}</Text>
+      <Text>Componente: {submit}</Text>
+      <Text>Componente: {submit}</Text>
+      <Text>Componente: {submit}</Text>
+      <Text>Componente: {submit}</Text>
+      <Text>Componente: {submit}</Text>
+      <Text>Componente: {submit}</Text>
+      <Text>Componente: {submit}</Text>
+      <Text>Componente: {submit}</Text>
+      <Text>Componente: {submit}</Text>
+      <Text>Componente: {submit}</Text>
+      <Text>Componente: {submit}</Text>
+      <Text>Componente: {submit}</Text>
+      <Text>Componente: {submit}</Text>
+      <Text>Componente: {submit}</Text>
+      <Text>Componente: {submit}</Text>
+      <Text>Componente: {submit}</Text>
+      <Text>Componente: {submit}</Text>
+      <Text>Componente: {submit}</Text>
+      <Text>Componente: {submit}</Text>
+      <Text>Componente: {submit}</Text>
+      <Text>Componente: {submit}</Text>
+      <Text>Componente: {submit}</Text>
+      <Text>Componente: {submit}</Text>
+      <Text>Componente: {submit}</Text>
+      <Text>Componente: {submit}</Text>
+      <Text>Componente: {submit}</Text>
+      <Text>Componente: {submit}</Text>
+      <Text>Componente: {submit}</Text>
+      <Text>Componente: {submit}</Text>
+      <Text>Componente: {submit}</Text>
+      <Text>Componente: {submit}</Text>
+      
       <TextInput style={styles.input} placeholder='Escribe texto...' onChangeText={(t)=>setText(t)} value={text}/>
       <Button title='Presioname...'onPress={()=>{setSubmit(text); alert('Texto enviado')}}/>      
 
       <StatusBar style="auto"/>
+      </ScrollView>
     </View>
   );
 }
@@ -46,9 +84,12 @@ const styles = StyleSheet.create({
   },
   input: {
     backgroundColor:'#DFD7FD',
-    width:'80%',
+    width:'100%',
     height:40,
     borderBottomWidth: 1,
     borderBottomColor:'blue',
+  },
+  scrollView: {
+    width:Dimensions.get('window').width,
   },
 });
