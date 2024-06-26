@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, FlatList, SectionList } from 'react-native';
-//import React, { useState } from 'react';
+import { StyleSheet, Text, View, FlatList, ActivityIndicator } from 'react-native';
+import React, { useState, useEffect } from 'react';
 /*
 const Texto=(props)=>{
   const {contenido}= props
@@ -22,43 +22,25 @@ const Texto=(props)=>{
   
 
 export default function App() {
-
+  const [user, setUser] = useState([])
+  const [loading, setLoading] = useState(true)
+  useEffect(()=>{
+    fetch('https://jsonplaceholder.typicode.com/users')
+    .then(response=> response.json())
+    .then(data=>{setUser(data), setLoading(false)})
+  },[])
+  if(loading){
+    return <View style={styles.loading}> 
+      <ActivityIndicator size={'large'} color={'green'}/>
+      <Text>Cargando...</Text>
+    </View>
+  }
   return (
     <View style={styles.container}>
     
-      <SectionList 
-        sections={[
-          {title:'Grupo A',
-            data:[
-              {key:1,name:'Ivan Isay'},
-              {key:2,name:'Victor'},
-              {key:3,name:'Elias'},
-              {key:4,name:'Alan'},
-              {key:5,name:'Pablo'},
-              {key:6,name:'Lilian'},
-              {key:7,name:'Monse'},]},
-          {title:'Grupo B',
-            data:[
-              {key:8,name:'Isa'},
-              {key:9,name:'Diego'},
-              {key:10,name:'Maya'},
-              {key:11,name:'Juan'},
-              {key:12,name:'Fer'},
-              {key:13,name:'Gadiel'},
-              {key:14,name:'Daniel'},]},
-          {title:'Grupo C',
-            data:[
-              {key:15,name:'Roberto'},
-              {key:16,name:'Gregorio'},
-              {key:17,name:'Sergio'},
-              {key:18,name:'Luis'},
-              {key:19,name:'Miguel'},
-              {key:20,name:'Pedro'},
-              {key:21,name:'Ulises'},]}
-            ]}
-          renderItem = {({item})=> <Text style={styles.item}> {item.name} </Text>}
-          renderSectionHeader = {({section})=> <Text> {section.title} </Text>}
-        />
+    <FlatList data={user} 
+    renderItem={({item})=><Text style={styles.item}>{item.name}</Text>}
+    />
       
       <StatusBar style="auto"/>
     </View>
@@ -81,11 +63,10 @@ const styles = StyleSheet.create({
     borderColor: 'green',
     borderBottomWidth: 1,
   },
-  section:{
-    fontSize:16,
-    fontWeight:'bold',
-    backgroundColor:'#eee',
-    paddingTop:4,
-    paddingBottom:4,
+  loading:{
+    flex:1,
+    alignItems:'center',
+    justifyContent:'center',
+
   },
 });
