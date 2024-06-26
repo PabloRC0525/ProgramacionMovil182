@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button, TextInput, ScrollView, Dimensions } from 'react-native';
-import React, { useState } from 'react';
+import { StyleSheet, Text, View, FlatList, SectionList } from 'react-native';
+//import React, { useState } from 'react';
 /*
 const Texto=(props)=>{
   const {contenido}= props
@@ -22,54 +22,45 @@ const Texto=(props)=>{
   
 
 export default function App() {
-  const [text, setText]= useState('Valor Default')
-  const [submit, setSubmit]= useState('')
+
   return (
     <View style={styles.container}>
-      <ScrollView style={styles.scrollView}>
-
-      <Text>Componente: {submit}</Text>
-      <Text>Componente: {submit}</Text>
-      <Text>Componente: {submit}</Text>
-      <Text>Componente: {submit}</Text>
-      <Text>Componente: {submit}</Text>
-      <Text>Componente: {submit}</Text>
-      <Text>Componente: {submit}</Text>
-      <Text>Componente: {submit}</Text>
-      <Text>Componente: {submit}</Text>
-      <Text>Componente: {submit}</Text>
-      <Text>Componente: {submit}</Text>
-      <Text>Componente: {submit}</Text>
-      <Text>Componente: {submit}</Text>
-      <Text>Componente: {submit}</Text>
-      <Text>Componente: {submit}</Text>
-      <Text>Componente: {submit}</Text>
-      <Text>Componente: {submit}</Text>
-      <Text>Componente: {submit}</Text>
-      <Text>Componente: {submit}</Text>
-      <Text>Componente: {submit}</Text>
-      <Text>Componente: {submit}</Text>
-      <Text>Componente: {submit}</Text>
-      <Text>Componente: {submit}</Text>
-      <Text>Componente: {submit}</Text>
-      <Text>Componente: {submit}</Text>
-      <Text>Componente: {submit}</Text>
-      <Text>Componente: {submit}</Text>
-      <Text>Componente: {submit}</Text>
-      <Text>Componente: {submit}</Text>
-      <Text>Componente: {submit}</Text>
-      <Text>Componente: {submit}</Text>
-      <Text>Componente: {submit}</Text>
-      <Text>Componente: {submit}</Text>
-      <Text>Componente: {submit}</Text>
-      <Text>Componente: {submit}</Text>
-      <Text>Componente: {submit}</Text>
+    
+      <SectionList 
+        sections={[
+          {title:'Grupo A',
+            data:[
+              {key:1,name:'Ivan Isay'},
+              {key:2,name:'Victor'},
+              {key:3,name:'Elias'},
+              {key:4,name:'Alan'},
+              {key:5,name:'Pablo'},
+              {key:6,name:'Lilian'},
+              {key:7,name:'Monse'},]},
+          {title:'Grupo B',
+            data:[
+              {key:8,name:'Isa'},
+              {key:9,name:'Diego'},
+              {key:10,name:'Maya'},
+              {key:11,name:'Juan'},
+              {key:12,name:'Fer'},
+              {key:13,name:'Gadiel'},
+              {key:14,name:'Daniel'},]},
+          {title:'Grupo C',
+            data:[
+              {key:15,name:'Roberto'},
+              {key:16,name:'Gregorio'},
+              {key:17,name:'Sergio'},
+              {key:18,name:'Luis'},
+              {key:19,name:'Miguel'},
+              {key:20,name:'Pedro'},
+              {key:21,name:'Ulises'},]}
+            ]}
+          renderItem = {({item})=> <Text style={styles.item}> {item.name} </Text>}
+          renderSectionHeader = {({section})=> <Text> {section.title} </Text>}
+        />
       
-      <TextInput style={styles.input} placeholder='Escribe texto...' onChangeText={(t)=>setText(t)} value={text}/>
-      <Button title='Presioname...'onPress={()=>{setSubmit(text); alert('Texto enviado')}}/>      
-
       <StatusBar style="auto"/>
-      </ScrollView>
     </View>
   );
 }
@@ -79,17 +70,22 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection:'column',
     backgroundColor: '#FFFFFF',
-    alignItems: 'center',
+    alignItems: 'strech',
     justifyContent: 'center',
+    paddingTop: 60,
   },
-  input: {
-    backgroundColor:'#DFD7FD',
-    width:'100%',
-    height:40,
+  item: {
+    padding: 10,
+    fontSize: 24,
+    height: 50,
+    borderColor: 'green',
     borderBottomWidth: 1,
-    borderBottomColor:'blue',
   },
-  scrollView: {
-    width:Dimensions.get('window').width,
+  section:{
+    fontSize:16,
+    fontWeight:'bold',
+    backgroundColor:'#eee',
+    paddingTop:4,
+    paddingBottom:4,
   },
 });
