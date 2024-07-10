@@ -1,21 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
 import { Alert, StyleSheet, Text, View, TextInput, TouchableOpacity, ImageBackground } from 'react-native';
 import React, { useState } from 'react';
+import Prueba from './screens/Prueba';
 
 export default function App() {
-  const [nombre, setNombre] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
-  const Guardar = () => {
-    Alert.alert(
-      'Formulario Enviado',
-      `Nombre: ${nombre}\nEmail: ${email}\nPassword: ${password}`
-    );
-  };
 
   return (
-    <ImageBackground 
+    /* <ImageBackground 
       source={require('./assets/capy.jpg')} // Asegúrate de que esta ruta sea correcta
       style={styles.background}
     >
@@ -35,11 +26,12 @@ export default function App() {
 
         <StatusBar style="auto" />
       </View>
-    </ImageBackground>
+    </ImageBackground> */
+    <Prueba/>
   );
 }
 
-const styles = StyleSheet.create({
+/* const styles = StyleSheet.create({
   background: {
     flex: 1,
     width: '100%',
@@ -76,3 +68,4 @@ const styles = StyleSheet.create({
     fontSize: 18,
   },
 });
+ */
